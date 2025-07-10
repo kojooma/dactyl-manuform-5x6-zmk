@@ -8,8 +8,8 @@
 
     default_transform: keymap_transform_0 {
         compatible = "zmk,matrix-transform";
-        columns = <12>;
-        rows = <6>; // 4 finger rows + 2 thumb rows for logical mapping
+        columns = <6>;
+        rows = <5>;
         /*
          * This map describes how your physical key presses are translated
          * into a logical grid for the keymap below. It is designed to match
