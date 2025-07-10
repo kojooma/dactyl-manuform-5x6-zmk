@@ -8,7 +8,7 @@
 
     default_transform: keymap_transform_0 {
         compatible = "zmk,matrix-transform";
-        columns = <6>;
+        columns = <12>;
         rows = <5>;
         /*
          * This map describes how your physical key presses are translated
@@ -25,8 +25,8 @@
         // Two thumb keys on the bottom finger row (phys row 3, cols 4 & 5)
                                         RC(3,4) RC(3,5)      RC(3,11) RC(3,10)
         // Four thumb keys on the dedicated thumb row (phys row 4, cols 2,3,4,5)
-                                        RC(5,4) RC(5,5)      RC(5,11) RC(5,10)
-                                        RC(5,2) RC(5,3)      RC(5,9)  RC(5,8)
+                                        RC(4,4) RC(4,5)      RC(4,11) RC(4,10)
+                                        RC(4,2) RC(4,3)      RC(4,9)  RC(4,8)
 
                                                                 
                                          
