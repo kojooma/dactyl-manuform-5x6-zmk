@@ -10,11 +10,6 @@
         compatible = "zmk,matrix-transform";
         columns = <12>;
         rows = <5>; // 4 finger rows + 1 thumb row
-        /*
-         * This map describes how your 12x5 logical keymap maps to your
-         * physical 6-column, 5-row matrix on each hand.
-         * RC(row, col) syntax.
-         */
         map = <
         // Left Hand                                                              // Right Hand
         RC(0,0) RC(0,1) RC(0,2) RC(0,3) RC(0,4) RC(0,5)      RC(0,11) RC(0,10) RC(0,9) RC(0,8) RC(0,7) RC(0,6)
@@ -32,20 +27,37 @@
 
         // Your provided wiring translated to ZMK's &pro_micro numbers
         col-gpios
-            = <&pro_micro 1 (GPIO_ACTIVE_HIGH)>     // Col 0: P1.06 (Your 106)
-            , <&pro_micro 3 (GPIO_ACTIVE_HIGH)>     // Col 1: P1.04 (Your 104)
-            , <&pro_micro 4 (GPIO_ACTIVE_HIGH)>     // Col 2: P0.11 (Your 011)
-            , <&pro_micro 5 (GPIO_ACTIVE_HIGH)>     // Col 3: P1.00 (Your 100)
-            , <&pro_micro 6 (GPIO_ACTIVE_HIGH)>     // Col 4: P0.24 (Your 024)
-            , <&pro_micro 2 (GPIO_ACTIVE_HIGH)>     // Col 5: P0.22 (Your 022)
+            = <&pro_micro 1 (GPIO_ACTIVE_HIGH)>     // Col 0: P1.06
+            , <&pro_micro 3 (GPIO_ACTIVE_HIGH)>     // Col 1: P1.04
+            , <&pro_micro 4 (GPIO_ACTIVE_HIGH)>     // Col 2: P0.11
+            , <&pro_micro 5 (GPIO_ACTIVE_HIGH)>     // Col 3: P1.00
+            , <&pro_micro 6 (GPIO_ACTIVE_HIGH)>     // Col 4: P0.24
+            , <&pro_micro 2 (GPIO_ACTIVE_HIGH)>     // Col 5: P0.22
             ;
 
         row-gpios
-            = <&pro_micro 21 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // Row 0: P0.10 (Your 010)
-            , <&pro_micro 14 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // Row 1: P1.11 (Your 111)
-            , <&pro_micro 16 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // Row 2: P1.13 (Your 113)
-            , <&pro_micro 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // Row 3: P1.15 (Your 115)
-            , <&pro_micro 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // Row 4 (Thumb): P0.09 (Your 009)
+            = <&pro_micro 21 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // Row 0: P0.10
+            , <&pro_micro 14 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // Row 1: P1.11
+            , <&pro_micro 16 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // Row 2: P1.13
+            , <&pro_micro 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // Row 3: P1.15
+            , <&pro_micro 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // Row 4 (Thumb): P0.09
             ;
     };
+};
+
+/*
+================================================================================
+== Custom I2C Bus Definition for Split Communication ==
+================================================================================
+This re-defines the default I2C channel (i2c0) to use your handwired pins.
+*/
+&i2c0 {
+    status = "okay";
+    clock-frequency = <I2C_BITRATE_FAST>;
+
+    // SCL pin wired to P0.20
+    scl-pin = <NRF_GPIO_PIN_MAP(0, 20)>;
+
+    // SDA pin wired to P0.17
+    sda-pin = <NRF_GPIO_PIN_MAP(0, 17)>;
 };
