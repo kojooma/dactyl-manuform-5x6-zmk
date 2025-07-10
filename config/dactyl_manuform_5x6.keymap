@@ -17,29 +17,33 @@
             &kp Q  &kp W  &kp E  &kp R  &kp T        &kp Y  &kp U  &kp I  &kp O  &kp P
             &kp A  &kp S  &kp D  &kp F  &kp G        &kp H  &kp J  &kp K  &kp L  &kp SEMI
             &kp Z  &kp X  &kp C  &kp V  &kp B        &kp N  &kp M  &kp COMMA &kp DOT &kp FSLH
-            &kp LSHFT &kp LCTRL &kp LGUI &kp LALT &kp BSPC   &kp RET &kp RALT &kp RCTRL &kp RGUI &kp TAB
-            // Thumb Cluster (3 keys per side based on the new map)
-                                 &mo NAV &kp SPACE &kp LSHFT    &kp RSHFT &kp BSPC &mo NAV
+            &kp LCTRL &kp LGUI &kp LALT &kp GRAVE   &kp RALT &kp RCTRL &kp RGUI &kp BSLH // This only has 4 keys on the left, to match the map
+            // Logical Thumb Cluster (Rows 4 and 5)
+                                          &kp BSPC &kp RET        &kp LSHFT &kp RSHFT
+                   &kp LEFT &kp DOWN &kp UP &kp RIGHT         &mo NAV &kp SPACE &kp ENTER &mo ADJUST
             >;
         };
 
         nav_layer {
+            // All &trans to pass through from the default layer unless specified
             bindings = <
-            &kp ESC  &kp N1   &kp N2   &kp N3   &kp N4   &kp N5          &kp N6  &kp N7  &kp N8  &kp N9  &kp N0
-            &kp TAB  &kp EXCL &kp AT   &kp HASH &kp DLLR &kp PRCNT       &kp CARET &kp AMPS &kp ASTR &kp LPAR &kp RPAR
-            &trans   &kp MINUS &kp EQUAL &kp LBKT &kp RBKT &kp BSLH        &kp GRAVE &kp K_VOL_UP &kp K_VOL_DN &kp K_MUTE &trans
-            &trans   &trans   &trans   &trans   &trans          &trans  &kp PG_UP  &kp PG_DN  &kp HOME &kp END
-                                      &mo ADJUST &trans  &trans        &trans  &trans &mo ADJUST
+            &trans  &trans  &trans  &trans  &trans         &trans  &trans  &trans  &trans  &trans
+            &trans  &trans  &trans  &trans  &trans         &trans  &trans  &trans  &trans  &trans
+            &trans  &trans  &trans  &trans  &trans         &trans  &trans  &trans  &trans  &trans
+            &trans  &trans  &trans  &trans                 &trans  &trans  &trans  &trans
+                                            &trans &trans         &trans &trans
+                    &bootloader &sys_reset &trans &trans   &trans &trans &trans &trans
             >;
         };
 
         adjust_layer {
-             bindings = <
-            &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4  &bt BT_CLR
-            &out OUT_USB &out OUT_BLE &trans       &trans       &trans        &trans
-            &bootloader  &sys_reset   &trans       &trans       &trans        &trans
-            &trans       &trans       &trans       &trans       &trans        &trans
-                                              &trans &trans &trans         &trans &trans &trans
+            bindings = <
+            &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3       &bt BT_CLR &none &none &none &none &none
+            &out OUT_USB &out OUT_BLE &none      &none                &none      &none &none &none &none &none
+            &trans       &trans       &trans     &trans       &trans  &trans     &trans &trans &trans &trans &trans
+            &trans       &trans       &trans     &trans               &trans     &trans &trans &trans
+                                                              &trans &trans      &trans &trans
+                                &trans &trans &trans &trans          &trans &trans &trans &trans
             >;
         };
     };
