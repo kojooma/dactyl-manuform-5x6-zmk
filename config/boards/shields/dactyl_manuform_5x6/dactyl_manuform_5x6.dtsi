@@ -72,6 +72,43 @@
         reset: reset_behavior {
             compatible = "zmk,behavior-reset";
         };
+
+        bootloader: bootloader_behavior {
+            compatible = "zmk,behavior-bootloader";
+        };
+
+        out_ble: out_ble_behavior {
+            compatible = "zmk,behavior-output-select";
+            label = "BLE Output";
+            output = <OUT_BLE>;
+        };
+
+        out_usb: out_usb_behavior {
+            compatible = "zmk,behavior-output-select";
+            label = "USB Output";
+            output = <OUT_USB>;
+        };
+
+        btclr: btclr_behavior {
+            compatible = "zmk,behavior-bluetooth-clear-bonds";
+        };
+
+        bt0: bt0_behavior {
+            compatible = "zmk,behavior-bluetooth-select";
+            bt-index = <0>;
+        };
+        bt1: bt1_behavior {
+            compatible = "zmk,behavior-bluetooth-select";
+            bt-index = <1>;
+        };
+        bt2: bt2_behavior {
+            compatible = "zmk,behavior-bluetooth-select";
+            bt-index = <2>;
+        };
+        bt3: bt3_behavior {
+            compatible = "zmk,behavior-bluetooth-select";
+            bt-index = <3>;
+        };
     };
 };
 
