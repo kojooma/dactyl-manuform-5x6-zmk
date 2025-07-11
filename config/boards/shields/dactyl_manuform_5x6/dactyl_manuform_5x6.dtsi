@@ -51,7 +51,10 @@
 
 / {
     behaviors {
-        
+        kb_reset: reset_behavior {
+            compatible = "zmk,behavior-reset";
+            #binding-cells = <0>;
+        };
     };
 };
 
