@@ -58,11 +58,6 @@
     };
 };
 
-&uart0 {
-    status = "okay";
-    current-speed = <115200>;
-};
-
 / {
     behaviors {
         kb_reset: reset_behavior {
