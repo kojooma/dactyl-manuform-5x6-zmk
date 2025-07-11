@@ -67,3 +67,11 @@
     rx-pin = <8>;
 };
 
+/ {
+    behaviors {
+        reset: reset_behavior {
+            compatible = "zmk,behavior-reset";
+        };
+    };
+};
+
