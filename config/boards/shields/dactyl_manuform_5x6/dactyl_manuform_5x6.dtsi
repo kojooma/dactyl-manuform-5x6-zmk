@@ -44,9 +44,6 @@
     };
 };
 
-
-
-// Custom I2C Bus Definition for Split Communication
 &uart0 {
     status = "okay";
     current-speed = <115200>;

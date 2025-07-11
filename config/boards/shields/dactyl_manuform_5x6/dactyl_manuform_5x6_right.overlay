@@ -1,3 +1,1 @@
 #include "dactyl_manuform_5x6.dtsi"
-
-CONFIG_ZMK_SPLIT_ROLE_PERIPHERAL=y
