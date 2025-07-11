@@ -60,10 +60,6 @@
             compatible = "zmk,behavior-reset";
         };
 
-        bootloader: bootloader_behavior {
-            compatible = "zmk,behavior-bootloader";
-        };
-
         out_ble: out_ble_behavior {
             compatible = "zmk,behavior-output-select";
             label = "BLE Output";
