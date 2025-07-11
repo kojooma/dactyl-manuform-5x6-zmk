@@ -56,11 +56,3 @@
             ;
     };
 };
-
-// Custom I2C Bus Definition for Split Communication
-&i2c0 {
-    status = "okay";
-    clock-frequency = <I2C_BITRATE_FAST>;
-    scl-pin = <NRF_GPIO_PIN_MAP(0, 20)>;
-    sda-pin = <NRF_GPIO_PIN_MAP(0, 17)>;
-};
